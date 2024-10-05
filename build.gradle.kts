@@ -24,14 +24,16 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-batch")
-	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+	implementation("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-jetty")
+	implementation("org.flywaydb:flyway-core")
 	implementation("org.projectlombok:lombok:1.18.34")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
 	implementation("com.fasterxml.jackson.core:jackson-annotations:2.17.2")
-	implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
-	implementation("org.flywaydb:flyway-core")
+
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")

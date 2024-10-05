@@ -12,8 +12,15 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class CategoryDTO implements Serializable {
+public class Category implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private Long id = -1L;
     private String nombre;
     private String descripcion;
     private byte[] foto;
+
+    public static final String TABLE = "categoria";
+    public static final String ID = "id";
 }

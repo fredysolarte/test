@@ -12,9 +12,19 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class ProductResponseDTO implements Serializable {
-    private Long id;
+public class Product implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private Long id = -1L;
     private String nombre;
-    private String categoriaNombre;
-    private byte[] fotoCategoria;
+    private Long suplierId;
+    private Long categoriaId;
+    private Integer cantidad;
+    private Double precio;
+    private Integer unidadStock;
+    private Integer unidadesOrden;
+
+    public static final String TABLE = "productos";
+    public static final String ID = "id";
 }

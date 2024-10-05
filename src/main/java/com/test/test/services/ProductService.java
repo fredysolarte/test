@@ -1,39 +1,51 @@
 package com.test.test.services;
 
-import com.test.test.entities.Product;
+
+import com.test.test.exceptios.UserException;
+import com.test.test.models.Product;
 import com.test.test.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
+
+import static com.test.test.constants.Constants.ERROR_404;
+import static com.test.test.constants.Constants.PRODUCT_NOT_FOUND;
 
 @Service
 public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Product createProduct(Product product) {
-        return productRepository.save(product);
+    public List<Product> getAllProducts() {
+        return productRepository.getAllProducts();
     }
 
-    public Page<Product> getAllProducts(Pageable pageable) {
-        return productRepository.findAll(pageable);
+    public List<Product> getAllProducts(int page, int size) {
+        return productRepository.getAllProducts(page, size);
     }
 
-    public Optional<Product> getProductById(Long id) {
-        return productRepository.findById(id);
+    public Product getProductById(Long id) {
+        Product product = productRepository.getProductById(id);
+        if (product == null) {
+            throw new UserException(ERROR_404, PRODUCT_NOT_FOUND);
+        }
+        return product;
     }
 
-    public Page<Product> getProductsByCategoryId(Long categoriaId, Pageable pageable) {
-        return productRepository.findByCategoriaId(categoriaId, pageable);
+    public void createProduct(Product product) {
+        productRepository.insertProduct(product);
     }
 
-    @Transactional
-    public void createProducts(List<Product> products) {
-        productRepository.saveAll(products);
+    public void insertInBatch(List<Product> products) {
+        productRepository.insertInBatch(products);
+    }
+
+    public Product getProductWithCategoryPhoto(Long id) {
+        Product product = productRepository.getProductWithCategoryPhoto(id);
+        if (product == null) {
+            throw new UserException(ERROR_404, PRODUCT_NOT_FOUND);
+        }
+        return product;
     }
 }

@@ -1,54 +1,39 @@
 package com.test.test.controllers;
-import com.test.test.entities.Product;
+import com.test.test.models.Product;
 import com.test.test.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
+import static com.test.test.routes.InternalRoutes.*;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping(PRODUCTS)
 public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        Product savedProduct = productService.createProduct(product);
-        return ResponseEntity.ok(savedProduct);
-    }
-
-    @PostMapping
-    public ResponseEntity<String> createProduct(@RequestBody List<Product> products) {
-        try {
-            productService.createProducts(products);
-            return ResponseEntity.ok("Productos creados exitosamente");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Error al crear productos: " + e.getMessage());
-        }
-    }
-
     @GetMapping
-    public ResponseEntity<Page<Product>> getAllProducts(Pageable pageable) {
-        Page<Product> products = productService.getAllProducts(pageable);
-        return ResponseEntity.ok(products);
+    public List<Product> getAllProducts(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        return productService.getAllProducts(page, size);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
-        Optional<Product> product = productService.getProductById(id);
-        return product.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    @GetMapping(ID)
+    public Product getProductById(@PathVariable Long id) {
+        return productService.getProductById(id);
     }
 
-    @GetMapping("/category/{categoryId}")
-    public ResponseEntity<Page<Product>> getProductsByCategoryId(
-            @PathVariable Long categoryId, Pageable pageable) {
-        Page<Product> products = productService.getProductsByCategoryId(categoryId, pageable);
-        return ResponseEntity.ok(products);
+    @PostMapping
+    public Product createProduct(@RequestBody Product product) {
+        productService.createProduct(product);
+        return product;
     }
 
+    @GetMapping(SEARCH_ID)
+    public Product getProductWithCategoryPhoto(@PathVariable Long id) {
+        return productService.getProductWithCategoryPhoto(id);
+    }
 }

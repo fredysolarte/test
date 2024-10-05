@@ -1,13 +1,13 @@
 CREATE TABLE categoria (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     descripcion TEXT,
-    foto LONGBLOB
+    foto BYTEA
 );
 
 
 CREATE TABLE productos (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     suplier_id BIGINT,
     categoria_id BIGINT,

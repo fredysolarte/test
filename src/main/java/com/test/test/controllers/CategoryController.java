@@ -1,34 +1,38 @@
 package com.test.test.controllers;
-import com.test.test.entities.Category;
+import com.test.test.models.Category;
 import com.test.test.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
+import static com.test.test.routes.InternalRoutes.CATEGORIES;
+import static com.test.test.routes.InternalRoutes.ID;
+
 @RestController
-@RequestMapping("/categories")
+@RequestMapping(CATEGORIES)
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    @GetMapping(ID)
+    public Category getCategoryId(@PathVariable int id) {
+        return categoryService.getCategoryId(id);
+    }
+
     @PostMapping
-    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
-        Category savedCategory = categoryService.createCategory(category);
-        return ResponseEntity.ok(savedCategory);
+    public Category createCategory(@RequestBody Category category) {
+        return categoryService.createCategory(category);
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategories() {
-        List<Category> categories = categoryService.getAllCategories();
-        return ResponseEntity.ok(categories);
+    public List<Category> getAllCategories() {
+        return categoryService.getAllCategories();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
-        return categoryService.getCategoryById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    @DeleteMapping(ID)
+    public void deleteCategory(@PathVariable int id) {
+        categoryService.deleteCategory(id);
     }
 }
