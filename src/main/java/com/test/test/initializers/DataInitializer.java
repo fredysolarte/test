@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.test.test.constants.Constants.PRODUCT;
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -26,12 +28,15 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         List<Product> products = new ArrayList<>();
-
         List<Category> categories = categoryService.getAllCategories();
+
+        if (categories.isEmpty()) {
+            throw new IllegalStateException("No hay categorías disponibles para asignar a los productos.");
+        }
 
         for (int i = 1; i <= 100000; i++) {
             Product product = new Product();
-            product.setNombre("Producto " + i);
+            product.setNombre(PRODUCT + i);
             product.setSuplierId((long) random.nextInt(100));
             product.setCategoriaId(categories.get(random.nextInt(categories.size())).getId());
             product.setCantidad(random.nextInt(1000));
