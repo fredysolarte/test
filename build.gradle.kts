@@ -45,10 +45,13 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+
 tasks.bootJar {
 	manifest {
 		attributes["Main-Class"] = "com.test.test.TestApplication"
 	}
+	archiveBaseName.set("test-app")
+	archiveVersion.set("0.0.1-SNAPSHOT")
 	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
