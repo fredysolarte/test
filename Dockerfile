@@ -1,4 +1,5 @@
-FROM openjdk:17.0.2-jdk-slim
-MAINTAINER FSE
+FROM amazoncorretto:17-alpine-jdk
+
 COPY build/libs/test-app-0.0.1-SNAPSHOT.jar app.jar
+
 ENTRYPOINT ["java","-jar","/app.jar"]

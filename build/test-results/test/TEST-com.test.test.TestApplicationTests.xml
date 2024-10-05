@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.test.test.TestApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-05T21:42:01" hostname="LAPTOP-8TCFSJ3C" time="1.065">
+<testsuite name="com.test.test.TestApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-10-05T23:21:45" hostname="LAPTOP-8TCFSJ3C" time="0.836">
   <properties/>
-  <testcase name="contextLoads()" classname="com.test.test.TestApplicationTests" time="1.065"/>
-  <system-out><![CDATA[17:36:25.343 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.test.test.TestApplicationTests]: TestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:36:25.453 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.test.test.TestApplication for test class com.test.test.TestApplicationTests
+  <testcase name="contextLoads()" classname="com.test.test.TestApplicationTests" time="0.836"/>
+  <system-out><![CDATA[19:16:21.063 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.test.test.TestApplicationTests]: TestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:16:21.190 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.test.test.TestApplication for test class com.test.test.TestApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,14 +14,14 @@
 
  :: Spring Boot ::                (v3.3.4)
 
-2024-10-05T17:36:25.923-04:00  INFO 17336 --- [test] [    Test worker] com.test.test.TestApplicationTests       : Starting TestApplicationTests using Java 17.0.11 with PID 17336 (started by fredy in C:\Fuentes\test)
-2024-10-05T17:36:25.923-04:00  INFO 17336 --- [test] [    Test worker] com.test.test.TestApplicationTests       : No active profile set, falling back to 1 default profile: "default"
-2024-10-05T17:36:26.658-04:00  INFO 17336 --- [test] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-10-05T17:36:26.689-04:00  INFO 17336 --- [test] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21 ms. Found 0 JDBC repository interfaces.
-2024-10-05T17:36:27.665-04:00  INFO 17336 --- [test] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-10-05T17:36:31.002-04:00  INFO 17336 --- [test] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1573e8a5
-2024-10-05T17:36:31.002-04:00  INFO 17336 --- [test] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-10-05T17:36:31.207-04:00  INFO 17336 --- [test] [    Test worker] com.test.test.TestApplicationTests       : Started TestApplicationTests in 5.587 seconds (process running for 7.269)
+2024-10-05T19:16:21.653-04:00  INFO 11204 --- [test] [    Test worker] com.test.test.TestApplicationTests       : Starting TestApplicationTests using Java 17.0.11 with PID 11204 (started by fredy in C:\Fuentes\test)
+2024-10-05T19:16:21.653-04:00  INFO 11204 --- [test] [    Test worker] com.test.test.TestApplicationTests       : No active profile set, falling back to 1 default profile: "default"
+2024-10-05T19:16:22.362-04:00  INFO 11204 --- [test] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-10-05T19:16:22.394-04:00  INFO 11204 --- [test] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+2024-10-05T19:16:23.368-04:00  INFO 11204 --- [test] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-05T19:16:25.333-04:00  INFO 11204 --- [test] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@78eafad
+2024-10-05T19:16:25.333-04:00  INFO 11204 --- [test] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-05T19:16:25.553-04:00  INFO 11204 --- [test] [    Test worker] com.test.test.TestApplicationTests       : Started TestApplicationTests in 4.173 seconds (process running for 5.843)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

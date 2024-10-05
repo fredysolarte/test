@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.test.test.product.ProductServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-10-05T21:42:03" hostname="LAPTOP-8TCFSJ3C" time="0.01">
+<testsuite name="com.test.test.product.ProductServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-10-05T23:21:46" hostname="LAPTOP-8TCFSJ3C" time="0.006">
   <properties/>
-  <testcase name="testGetProductByIdNotFound()" classname="com.test.test.product.ProductServiceTest" time="0.003"/>
-  <testcase name="testCreateProduct()" classname="com.test.test.product.ProductServiceTest" time="0.001"/>
-  <testcase name="testGetAllProducts()" classname="com.test.test.product.ProductServiceTest" time="0.002"/>
+  <testcase name="testGetProductByIdNotFound()" classname="com.test.test.product.ProductServiceTest" time="0.002"/>
+  <testcase name="testCreateProduct()" classname="com.test.test.product.ProductServiceTest" time="0.0"/>
+  <testcase name="testGetAllProducts()" classname="com.test.test.product.ProductServiceTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
